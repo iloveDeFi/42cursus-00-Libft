@@ -6,19 +6,22 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:44:54 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/28 16:51:38 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:02:57 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 https://fr.ans.wiki/2060/comment-utiliser-la-fonction-strlcat/
-http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc.neutrino_lib_ref%2Fi%2Fisascii.html
+http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc
+.neutrino_lib_ref%2Fi%2Fisascii.html
 str : ça parle de chaîne de caractères
 l : suivant la longueur
 cat : concatène
 strlcat met les deux chaînes en paramètre à la suite les unes des autres, 
 mais pas de façon plus longue que le troisième paramètre ne l'indique.
 */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

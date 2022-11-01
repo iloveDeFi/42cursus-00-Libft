@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 14:11:59 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/31 19:06:09 by bbessard         ###   ########.fr       */
+/*   Created: 2022/11/01 11:36:21 by bbessard          #+#    #+#             */
+/*   Updated: 2022/11/01 13:05:08 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-https://koor.fr/C/cstring/strlen.wp
+https://koor.fr/C/cstring/memcmp.wp
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char	*s)
+int	memcmp(const void	*s1, const void *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (i < n)
 	{
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		i++;
 	}
-	return (i);
+	return (0);
 }

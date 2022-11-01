@@ -6,13 +6,15 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:25:06 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/28 17:31:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:52:24 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 https://koor.fr/C/cstring/memcpy.wp
 */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -32,7 +34,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
 
 /*
 int main( void )

@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:19:30 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/28 17:31:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:01:58 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,16 @@
 https://koor.fr/C/cstring/memset.wp
 */
 
-void	*ft_memset(void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t  n;
-	unsigned char   *string;
+	size_t			i;
+	unsigned char	*ptr;
 
 	i = 0;
-	string = (unsigned char *)s;
-	while (i < n)
-	{
-		*string = (unsigned char)c;
-		i++;
-		string++;
-	}
-	return (s);
+	ptr = (unsigned char *)b;
+	while (i < len)
+		ptr[i++] = (unsigned char)c;
+	return (b);
 }
-
-
-
-/*
-Exemple de code
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int main() {
-
-    int array [] = { 54, 85, 20, 63, 21 };
-    size_t size = sizeof( int ) * 5;
-    int length;
-
-    /* Display the initial values
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
-    }
-    printf( "\n" );
-
-    /* Reset the memory bloc
-    memset( array, 0, size );
-
-    /* Display the new values
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
-    }
-    printf( "\n" );
-    
-    return 0;
-}
-/*

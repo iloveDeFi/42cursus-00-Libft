@@ -6,16 +6,18 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:56:41 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/28 17:31:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:10:18 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+#include "libft.h"
+
+int	t_toupper(int c)
 {
-    if (c >= 97 && c <= 122)
-    {
-        return (c - 32);
-    }
-    else
-        return (c);
+	if (c >= 97 && c <= 122)
+	{
+		return (c - 32);
+	}
+	else
+		return (c);
 }

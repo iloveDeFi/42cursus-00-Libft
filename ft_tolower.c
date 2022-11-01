@@ -6,16 +6,18 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:56:38 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/28 17:31:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:09:01 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-    if (c >= 65 && c <= 90)
-    {
-        return (c + 32);
-    }
-    else 
-        return (c);
+	if (c >= 65 && c <= 90)
+	{
+		return (c + 32);
+	}
+	else
+		return (c);
 }
