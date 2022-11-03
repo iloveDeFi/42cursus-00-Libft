@@ -6,7 +6,7 @@
 #    By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 17:04:37 by bbessard          #+#    #+#              #
-#    Updated: 2022/11/01 15:09:46 by bbessard         ###   ########.fr        #
+#    Updated: 2022/11/02 10:18:26 by bbessard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LDLIBS = -lft
 
 HDDIRS = -I includes/
 
-AR = ar rcs	
+AR = ar rcs
 
 HEADER = libft.h
 
@@ -40,10 +40,8 @@ ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME): includes/libft.h
-	$(CC) $(CFLAGS) -c $(SRC) $(HDDIRS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 

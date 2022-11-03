@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:45:37 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/01 15:06:30 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/02 10:22:55 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ https://www.geeksforgeeks.org/strdup-strdndup-functions-c/#:~:text=strdup()%20%3
 */
 #include "libft.h"
 
-char	*strdup(const char*s1)
+char	*ft_strdup(const char*s1)
 {
 	char	*s1_cpy;
 	size_t	i;

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 11:36:21 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/02 10:22:38 by bbessard         ###   ########.fr       */
+/*   Created: 2022/11/03 13:24:50 by bbessard          #+#    #+#             */
+/*   Updated: 2022/11/03 13:30:44 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-https://koor.fr/C/cstring/memcmp.wp
-*/
-
 #include "libft.h"
 
-int	ft_memcmp(const void	*s1, const void *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	unsigned int	number;
 
-	i = 0;
-	while (i < n)
+	if (n < 0)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		number = -n;
 	}
-	return (0);
+	else
+		number = n;
+	if (number > 9)
+	{
+		ft_putnbr_fd(number / 10, fd);
+		number %= 10;
+	}
+	ft_putchar_fd(number + '0', fd);
 }
