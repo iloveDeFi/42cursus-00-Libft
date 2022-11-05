@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:37:14 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/01 09:21:46 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:24:50 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,26 @@ caractère recherché alors que strrchr renvoi la dernière occurrence
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	char	*str;
-
-	str = (char *)s;
-	while (*str != c)
+	while (*str != '\0')
 	{
-		if (*str == '\0')
-		{
-			return (NULL);
-		}
+		if (*str == (char)c)
+			return ((char *)str);
 		str++;
 	}
-	return (str);
+	if (*str == (char)c)
+		return ((char *)str);
+	if ((char)c == '\0')
+		return ((char *)str);
+	return (NULL);
 }
 
 /*
-char	*ft_strchr(const char *s, int c)
+int main(void)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
-	}
-	if (*s == c)
-		return ((char*)s);
-	else
-		return (0);
+	const char    str[50] = "the cake is a lie !\0I'm hidden lol\r\n";
+	printf("%s\n", ft_strchr(str, 'x'));
+	printf("%s\n", strchr(str, 'x'));
 }
 */

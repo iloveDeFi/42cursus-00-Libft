@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 08:51:22 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/02 10:19:12 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:25:10 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,26 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	char	*result;
 
-	i = ft_strlen(s);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *) &s[i]);
-		i--;
+	result = NULL;
+	while (*s != '\0')
+	{	
+		if (*s == (char)c)
+			result = (char *)(s);
+		s++;
 	}
-	return (0);
+	if ((char)c == '\0')
+		result = (char *)(s);
+	return (result);
 }
+/*
+int main(void)
+{
+	const char	*s;
+	s = "bonjour";
+	printf("%s\n", ft_strrchr(s, 'o'));
+	printf("%s\n", strrchr(s, 'o'));
+	
+}
+*/

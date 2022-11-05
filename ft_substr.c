@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:44:05 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/05 14:57:42 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:26:41 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
 	char	*str;
 
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	str = malloc(sizeof(*str) * (len + 1));
+	if (str != NULL)
 	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
+		ft_memcpy(str, s + start, len);
+		str[len] = '\0';
 	}
-	str[j] = 0;
 	return (str);
 }
+/*
+int	main(int argc, char **argv)
+{
+	(void)argc;
+	(void)argv;
+	printf("%s\n", ft_substr("abcdefghijklmnopppppppp", 7, 10));
+}
+*/
