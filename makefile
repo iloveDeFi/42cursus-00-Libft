@@ -6,7 +6,7 @@
 #    By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 17:04:37 by bbessard          #+#    #+#              #
-#    Updated: 2022/11/05 14:42:31 by bbessard         ###   ########.fr        #
+#    Updated: 2022/11/16 10:52:01 by bbessard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LDLIBS = -lft
 
 HDDIRS = -I includes/
 
-AR = ar rcs
+AR = ar rc
 
 HEADER = libft.h
 
@@ -44,7 +44,7 @@ ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
 all: $(NAME)
 
@@ -55,10 +55,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-git:
-	git add .
-	git commit
-	git push
 
 .PHONY: all clean fclean git norminette re 

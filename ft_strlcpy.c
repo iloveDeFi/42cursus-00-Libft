@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:51:57 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/02 10:43:07 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:04:02 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,26 @@ lib_ref/topic/s/strlcat.html
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
-	size_t	srcsize;
 	size_t	i;
 
-	if (!dst || !src)
-		return (0);
-	srcsize = ft_strlen(src);
 	i = 0;
-	if (dstsize != 0)
+	if (destsize == 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' && i < destsize - 1)
 	{
-		while (src[i] != '\0' && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		dest[i] = src[i];
+		i++;
 	}
-	return (srcsize);
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }
+
+/*
+int main(void)
+{
+    char dest[] = "julien";
+    char src[] = "cava";
+    printf("%d\n", ft_strlcpy(dest, src, 3));
+}*/

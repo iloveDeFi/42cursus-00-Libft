@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:36:33 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/31 18:55:41 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:08:15 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,33 @@ https://koor.fr/C/cstring/memmove.wp
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
 	size_t	i;
-	char	*pt_dest;
-	char	*pt_src;
 
 	i = 0;
-	pt_dest = (char *)dest;
-	pt_src = (char *)src;
-	if (pt_src > pt_dest)
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (dest < src)
 	{
 		while (i < len)
 		{
-			pt_dest[i] = pt_src[i];
+			((char *)dest)[i] = ((char *)src)[i];
 			i++;
 		}
 	}
 	else
 	{
-		while (i != len)
+		while (i < len)
 		{
-			pt_dest[len - i - 1] = pt_src[len - i - 1];
+			((char *)dest)[len - i - 1] = ((char *)src)[len - i - 1];
 			i++;
 		}
 	}
 	return (dest);
 }
+/*
+int main()
+{
+	char dest[] = "siiiii";
+	char src[] = "ok le sang ";
+	printf("%s\n", ft_memmove(dest, src, 5));
+}
+*/
