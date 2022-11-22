@@ -6,13 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 09:40:53 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/05 15:16:45 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:14:43 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"	
-
-#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,24 +6,27 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:19:30 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/31 19:01:58 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:49:41 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 https://koor.fr/C/cstring/memset.wp
+Cette fonction permet de remplir une zone mémoire, identifiée par 
+son adresse et sa taille, avec une valeur précise.
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *str, int c, size_t size)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	size_t	i;
 
 	i = 0;
-	ptr = (unsigned char *)b;
-	while (i < len)
-		ptr[i++] = (unsigned char)c;
-	return (b);
+	while (i < size)
+	{
+		*((unsigned char *)str + i) = c;
+		i++;
+	}
+	return (str);
 }

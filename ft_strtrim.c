@@ -6,61 +6,54 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:30:18 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/05 14:58:26 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:27:15 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+Alloue (avec malloc(3)) et retourne une copie de
+la chaîne ’s1’, sans les caractères spécifiés
+dans ’set’ au début et à la fin de la chaîne de
+caractères.
+aaaaaaahelaaaloaaa return helaaalo
+*/
+
 #include "libft.h"
 
-int	ft_getstart(const char *s1, const char *set)
+static int	get_start_index(const char *s1, char const *set)
 {
-	size_t	len;
 	size_t	i;
 
-	len = ft_strlen(s1);
 	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[i]) == 0)
-			break ;
+	while (s1[i] && ft_strchr(set, s1[i]) != NULL)
 		i++;
-	}
 	return (i);
 }
 
-int	ft_getend(const char *s1, const char *set)
+static int	get_end_index(const char *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
 
 	len = ft_strlen(s1);
 	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[len - i - 1]) == 0)
-			break ;
+	while (i < len && ft_strchr(set, s1[len - i - 1]) != NULL)
 		i++;
-	}
 	return (len - i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	char	*newstr;
+	char	*str;
+	size_t	start;
+	size_t	end;
 
-	if (s1 == NULL)
-		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	start = ft_getstart(s1, set);
-	end = ft_getend(s1, set);
+	start = get_start_index(s1, set);
+	end = get_end_index(s1, set);
 	if (start >= end)
 		return (ft_strdup(""));
-	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (newstr == NULL)
-		return (NULL);
-	ft_strlcpy(newstr, s1 + start, end - start + 1);
-	return (newstr);
+	str = malloc(sizeof(*str) * (end - start + 1));
+	if (str != NULL)
+		ft_strlcpy(str, s1 + start, (end - start + 1));
+	return (str);
 }

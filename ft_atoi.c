@@ -6,40 +6,37 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 17:06:07 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/05 14:41:25 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:30:45 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 The atoi() function converts the initial portion of the string pointed to by 
 str to int representation.
+https://koor.fr/C/cstdlib/atoi.wp
 */
 
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	long	num;
-	int		sign;
-	int		i;
+	int	i;
+	int	p;
+	int	result;
 
 	i = 0;
-	sign = 1;
-	num = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		str++;
+	p = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
 	if (str[i] == '-')
-		sign = sign * -1;
-	if (str[i] == '+' || str[i] == '-')
-		str++;
-	while (str[i] >= '0' && str[i] <= '9')
+		p = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		num = (num * 10) + str[i] - '0';
-		str++;
-		if (num * sign > 2147483647)
-			return (-1);
-		if (num * sign < -2147483648)
-			return (0);
+		result = (result * 10) + str[i] - 48;
+		i++;
 	}
-	return (num * sign);
+	return (result * p);
 }

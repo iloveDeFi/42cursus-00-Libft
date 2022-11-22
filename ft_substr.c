@@ -6,11 +6,16 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:44:05 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/05 15:26:41 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:19:51 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+Elle renvoie la sous-chaîne de la chaîne source qui commence à la position m 
+et se termine à la position n-1. 
+*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

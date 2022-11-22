@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:45:37 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/02 10:22:55 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:53:31 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ https://www.geeksforgeeks.org/strdup-strdndup-functions-c/#:~:text=strdup()%20%3
 */
 #include "libft.h"
 
-char	*ft_strdup(const char*s1)
+char	*ft_strdup(const char *str)
 {
-	char	*s1_cpy;
-	size_t	i;
-	size_t	len;
+	size_t	size;
+	char	*copie;
+	int		i;
 
-	len = ft_strlen(s1);
-	s1_cpy = malloc((len + 1) * sizeof(char));
+	size = ft_strlen(str);
 	i = 0;
-	if (s1_cpy == 0)
-		return (0);
-	while (i < len)
+	copie = (char *)malloc(sizeof(char) * (size + 1));
+	if (copie == NULL)
+		return (NULL);
+	while (str[i] != '\0')
 	{
-		s1_cpy[i] = s1[i];
+		copie[i] = str[i];
 		i++;
 	}
-	s1_cpy[i] = '\0';
-	return (s1_cpy);
+	copie[i] = '\0';
+	return (copie);
 }

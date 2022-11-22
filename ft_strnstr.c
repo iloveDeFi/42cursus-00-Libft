@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 13:07:53 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/01 14:18:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:29:37 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,23 @@ https://codecogs.com/library/computing/c/string.h/strstr.php?alias=strnstr
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned int		i;
-	unsigned int		j;
+	size_t	i;
+	size_t	j;
 
-	if (needle[0] == '\0')
-		return ((char *)haystack);
 	i = 0;
+	if (needle[i] == '\0')
+		return ((char *)haystack);
 	while (haystack[i] && i < len)
 	{
 		j = 0;
-		if (haystack[i] == needle[j])
+		while ((haystack[i + j]
+				&& needle[j] == haystack[i + j]) && (i + j < len))
 		{
-			while (i + j < len && haystack[i + j] == needle[j])
-			{
-				j++;
-				if (!needle[j])
-					return ((char *)&haystack[i]);
-			}
+			if (needle[j + 1] == 0)
+				return ((char *)(&haystack[i]));
+			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

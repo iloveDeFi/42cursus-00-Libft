@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:25:06 by bbessard          #+#    #+#             */
-/*   Updated: 2022/10/31 18:52:24 by bbessard         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:46:21 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ https://koor.fr/C/cstring/memcpy.wp
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*d;
-	char	*s;
+	size_t		i;
+	char		*d;
+	const char	*s;
 
 	i = 0;
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
-		return (0);
+	d = dst;
+	s = src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];
