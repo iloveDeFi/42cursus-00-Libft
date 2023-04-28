@@ -1,19 +1,27 @@
-/*
- * Fonction pour supprimer les espaces en trop
- */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_epur_str.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 13:07:27 by bbessard          #+#    #+#             */
+/*   Updated: 2023/04/28 13:07:31 by bbessard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int i;
-	int flag;
+	int	i;
+	int	flag;
 
 	if (ac == 2)
 	{
 		while (av[1][i] == ' ' || av[1][i] == '\t')
 			i++;
-		int i = 0;
+		i = 0;
 		while (av[1][i])
 		{
 			if (av[1][i] == ' ' || av[1][i] == '\t')
@@ -29,8 +37,6 @@ int main(int ac, char **av)
 			}
 			i++;
 		}
-		return (0);
 	}
 	write (1, "\n", 1);
 }
-

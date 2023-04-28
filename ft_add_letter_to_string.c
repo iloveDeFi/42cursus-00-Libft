@@ -14,28 +14,34 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *add_letter_to_string(char const *s1, char const letter) {
-    int i;
-	int j;
-    char *tab;
-    i = 0;
-    j = 0;
-    tab = malloc((strlen(s1) + 2) * sizeof(char));
-	
-    if (!tab)
-        return NULL;
-    while (s1[i])
-        tab[j++] = s1[i++];
-    tab[j++] = letter;
-    tab[j] = '\0';
-    return tab;
+char	*add_letter_to_string(char const *s1, char const letter)
+{
+	int		i;
+	int		j;
+	char	*tab;
+
+	i = 0;
+	j = 0;
+	tab = malloc((strlen(s1) + 2) * sizeof(char));
+	if (!tab)
+		return (NULL);
+	while (s1[i])
+		tab[j++] = s1[i++];
+	tab[j++] = letter;
+	tab[j] = '\0';
+	return (tab);
 }
 
-int main() {
-    char *s1 = "Hello";
-    char letter = '!';
-    char *result = add_letter_to_string(s1, letter);
-    printf("Result: %s\n", result);
-    free(result);
-    return 0;
+int	main(void)
+{
+	char	*s1;
+	char	letter;
+	char	*result;
+
+	s1 = "Hello";
+	letter = '!';
+	result = add_letter_to_string(s1, letter);
+	printf("Result: %s\n", result);
+	free(result);
+	return (0);
 }
