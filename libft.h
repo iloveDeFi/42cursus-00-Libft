@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 17:05:32 by bbessard          #+#    #+#             */
-/*   Updated: 2022/11/16 13:49:19 by bbessard         ###   ########.fr       */
+/*   Created: 2023/08/23 14:20:57 by bbessard          #+#    #+#             */
+/*   Updated: 2023/08/23 14:34:42 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFFER_SIZE 1
 
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                 PART 1                                     */
-/*                                                                            */
-/* ************************************************************************** */
+# include <ctype.h>
+# include <string.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
 /* is_ */
 int				ft_isalpha(int c);
@@ -57,17 +57,13 @@ int				ft_atoi(const char *nptr);
 /* calloc_ */
 void			*ft_calloc(size_t nmemb, size_t size);
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                 PART 2                                     */
-/*                                                                            */
-/* ************************************************************************** */
-
 /* str_ */
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const	*s1, char const *s2);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
+char			*get_next_line(int fd);
+char			*ft_strjoin_gnl(char const *s1, char const *s2);
 
 /* challenge */
 char			**ft_split(char const *s, char c);

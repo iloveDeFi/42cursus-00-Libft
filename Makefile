@@ -6,7 +6,7 @@
 #    By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 17:04:37 by bbessard          #+#    #+#              #
-#    Updated: 2022/11/16 10:52:01 by bbessard         ###   ########.fr        #
+#    Updated: 2023/08/18 13:24:19 by bbessard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+get_next_line.c get_next_line_utils.c \
 
 OBJ = $(SRC:.c=.o)
 
